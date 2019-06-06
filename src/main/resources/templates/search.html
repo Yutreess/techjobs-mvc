@@ -37,6 +37,12 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
+    <table>
+        <tr th:each="item, idx : ${items}" th:class="${idx.odd} ? 'odd'">
+            <td><a th:href="@{/list/jobs(column=${column},value=${item})}" th:text="${item}"></a></td>
+        </tr>
+    </table>
+
 
 </div>
 
