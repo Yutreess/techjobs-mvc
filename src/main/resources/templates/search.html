@@ -37,11 +37,19 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
-    <table>
-        <tr th:each="job : ${jobs}">
-            <td><a th:text="${job.key}"></a></td>
-        </tr>
-    </table>
+    <ul>
+        <!--
+         jobList : ArrayList<HashMap<String, String>>
+         jobEntry: HashMap<String, String>
+         -->
+        <li th:each="jobList : ${jobs}">
+            <h3 th:each="jobEntry : jobList"></h3>
+                <h3 th:each="jobKey : jobEntry"></h3>
+            <!-- Need to return key from this job's column AS TEXT -->
+                <h4 th:text="${jobList}"></h4> :
+                <h4 th:text="${jobList}"></h4>
+        </li>
+    </ul>
 
 
 </div>
