@@ -37,19 +37,29 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
-    <ul>
+    <div th:fragment="search-results">
         <!--
-         jobList : ArrayList<HashMap<String, String>>
-         jobEntry: HashMap<String, String>
+         jobs : ArrayList<HashMap<String, String>>
+         job : HashMap<String, String>
+
+            th:each="job : ${jobs}"
+            th:each="jobEntry : ${job}"
+            th:each="column : ${columns}"
          -->
-        <li th:each="jobList : ${jobs}">
-            <h3 th:each="jobEntry : jobList"></h3>
-                <h3 th:each="jobKey : jobEntry"></h3>
             <!-- Need to return key from this job's column AS TEXT -->
-                <h4 th:text="${jobList}"></h4> :
-                <h4 th:text="${jobList}"></h4>
-        </li>
-    </ul>
+
+        <table th:each="job : ${jobs}" class="job-listing">
+
+
+                <tr th:each="jobEntry : ${job}">
+                    <td th:text="${#strings.capitalizeWords('__${jobEntry.key}__')}"></td>
+                    <td th:text="${jobEntry.value}"></td>
+                </tr>
+
+
+        </table>
+
+    </div>
 
 
 </div>
